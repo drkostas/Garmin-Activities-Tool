@@ -1,4 +1,4 @@
-# Garmin Activity - Distance Normalizer
+# Fix for Swimming Activities in Garmin Connect
 
 Garmin Vivofit 3 does not track correctly swimming distances and doesn't have gps. 
 
@@ -13,7 +13,7 @@ Steps:
 
 3. Run activity_distance_normalizer.py select the exported file and type the actual distance you swam.
 
-(If you don't want geolocation skip steps 4-10)
+   (If you don't want geolocation skip steps 4-10)
 
 4. Go to http://www.gpxeditor.co.uk/ and draw your swimming route until the distances it shows matches your actual distance.
 

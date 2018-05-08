@@ -12,22 +12,25 @@ def transfer_times(match):
 	return trkpt
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
-print "\nList of all tcx files in this Directory:"
-for file in os.listdir(dir_path):
+tcx_outputs = dir_path+"/Outputs/TCX/"
+gpx_inputs = dir_path+"/Inputs/GPX/"
+gpx_outputs = dir_path+"/Outputs/GPX/"
+print "\nList of all tcx files in the outputs Directory:"
+for file in os.listdir(tcx_outputs):
     if file.endswith(".tcx"):
-        print(os.path.join(dir_path, file))
+        print(os.path.join(tcx_outputs, file))
 
 tcxname = raw_input("\nPlease give the tcx filename: ")
 
-print "\nList of all gpx files in this Directory:"
-for file in os.listdir(dir_path):
+print "\nList of all gpx files in the Inputs Directory:"
+for file in os.listdir(gpx_inputs):
     if file.endswith(".gpx"):
-        print(os.path.join(dir_path, file))
+        print(os.path.join(gpx_inputs, file))
 
-gpxname = raw_input("\nPlease give the tcx filename: ")
+gpxname = raw_input("\nPlease give the gpx filename: ")
 
-tcx_content = open(tcxname, 'r').read()
-gpx_content = open(gpxname, 'r').read()
+tcx_content = open(tcx_outputs+tcxname, 'r').read()
+gpx_content = open(gpx_inputs+gpxname, 'r').read()
 
 tcx_times = re.findall(r"<Time>(.*)<\/Time>",tcx_content,re.MULTILINE)
 tcx_count = float(len(tcx_times))
@@ -39,7 +42,7 @@ print "Offset: ", offset
 
 new_gpx_content = re.sub(r"(<trkpt lat=\".*\" lon=\".*\") />", transfer_times, gpx_content,flags=re.MULTILINE)
 
-fileToSave = open('EDITED_' + gpxname, 'w')
+fileToSave = open(gpx_outputs+'EDITED_' + gpxname, 'w')
 fileToSave.write(new_gpx_content)
 print "File Saved Succesfully."
 

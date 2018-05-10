@@ -1,13 +1,13 @@
-# Fix for Swimming Activities in Garmin Connect
+# Garmin Activity Tool
 
 Garmin Vivofit 3 does not track correctly swimming distances and doesn't have gps. 
 
-With this app you can fix these distances and add geolocation to your activity.
+With this app you can fix the distances and add geolocation to any activity.
 
 Steps:
 
 
-1. Export your swimming activity's tcx file from garmin connect.
+1. Export your activity's tcx file from garmin connect.
 
 2. Place in "Inputs/TCX".
 
@@ -15,7 +15,7 @@ Steps:
 
    (If you don't want geolocation skip steps 4-10)
 
-4. Go to http://www.gpxeditor.co.uk/ and draw your swimming route until the distances it shows matches your actual distance.
+4. Go to http://www.gpxeditor.co.uk/ and draw your route until the distances it shows matches your actual distance.
 
 5. Export the gpx file and place it in "Inputs/GPX".
 
@@ -27,9 +27,9 @@ Steps:
 
 9. Click start processing and click Save (save it as a tcx file).
 
-10. Open the saved tcx file and replace all the lines before the "<Activities>" with the corresponding lines for your first initial file.
+10. Open the saved tcx file and replace all the lines before the "Activities" tag <> with the corresponding lines for your original tcx file.
 
 11. Your activity is now ready to be imported to any activity tracking website (such as Strava and Garmin Connect) !
 
 
-I know it's frustrating having to do all this steps, so I will try to automate most of the processes in the future.
+I know it's frustrating having to do all this steps, so I will try to automate most of these processes in the future.

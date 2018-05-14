@@ -7,29 +7,30 @@ With this app you can fix the distances and add geolocation to any activity.
 Steps:
 
 
-1. Export your activity's tcx file from garmin connect.
+1. Export your activity's tcx file from garmin connectc and place it in "Inputs/TCX".
 
-2. Place in "Inputs/TCX".
+2. Run 1_distanceNormalizer.exe, select the exported file and type the correct distance you crossed.
 
-3. Run activity_distance_normalizer.py select the exported file and type the actual distance you swam.
+   (If you don't want geolocation your are done!)
 
-   (If you don't want geolocation skip steps 4-10)
+3. Go to http://www.gpxeditor.co.uk/ and draw your route (make sure that the distance it shows matches your actual distance).
 
-4. Go to http://www.gpxeditor.co.uk/ and draw your route until the distances it shows matches your actual distance.
+   - Export the gpx file and place it in "Inputs/GPX".
 
-5. Export the gpx file and place it in "Inputs/GPX".
+4. Run 2_addTimespampsFromTCXtoGPX.exe, select the tcx file you created in step 3 and the gpx file you exported in step 5.
 
-6. Run activity_addTimespampsFromTCX.py and select the tcx file you created in step 2 and the gpx file you exported in step 5.
+5. Download GpxTcxWelder from https://sourceforge.net/projects/gpxtcxwelder/ and install it.
 
-7. Download GpxTcxWelder from https://sourceforge.net/projects/gpxtcxwelder/ and install it.
+   - Run it and select the tcx and the gpx files from "Outputs/TCX" and "Outputs/GPX".
 
-8. Run it and select the tcx and the gpx files from "Outputs/TCX" and "Outputs/GPX".
+   - Click start processing, click Save and place the new tcx file in Inputs/GpxTcxWelder
 
-9. Click start processing and click Save (save it as a tcx file).
+6. Run 3_cleanHeader.exe, select your original tcx file and the one you saved from GpxTcxWelder.
 
-10. Open the saved tcx file and replace all the lines before the "Activities" tag <> with the corresponding lines for your original tcx file.
+Congratulations!!
 
-11. Your activity is now ready to be imported to any activity tracking website (such as Strava and Garmin Connect) !
+Your final activity is ready inside Outputs/GpxTcxWelder. You can now import it an any activity tracking website (such as Strava and Garmin Connect)!
 
+For any request/help email me @ georgiou.kostas@hotmail.com
 
-I know it's frustrating having to do all this steps, so I will try to automate most of these processes in the future.
+(I'm in the process of reducing the required steps.)
